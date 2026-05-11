@@ -1,0 +1,2453 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Kitros B&amp;B — Palagiano, Puglia ionica</title>
+<meta name="description" content="Kitros B&B a Palagiano (TA). Tra le spiagge ioniche, le gravine, Matera e Alberobello. Una casa accogliente nel cuore della Puglia." />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Kitros B&B — Palagiano, Puglia ionica" />
+<meta property="og:description" content="Una casa accogliente nel cuore della Puglia ionica. Tra spiagge, gravine e trulli." />
+<meta property="og:type" content="website" />
+
+<link rel="icon" type="image/png" href="favicon.png" />
+<link rel="apple-touch-icon" href="favicon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,600;1,9..144,700&family=Instrument+Serif:ital,wght@0,400;1,400&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════════
+   KITROS B&B — Editorial Modern, Mediterranean
+   Color palette inspired by the lemon-and-graphite logo
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* Core palette */
+  --cream:        #faf6ed;
+  --cream-2:      #f3ecdb;
+  --cream-3:      #e9dfc6;
+  --ivory:        #fdfbf5;
+
+  --ink:          #1a1814;
+  --ink-2:        #2d2823;
+  --graphite:     #3a342b;
+  --pencil:       #5a5145;
+  --pencil-soft:  #8a8170;
+
+  --lemon:        #f4c534;
+  --lemon-deep:   #d9a716;
+  --lemon-soft:   #fae39a;
+  --lemon-wash:   #fdf3c8;
+
+  --leaf:         #4a6b3a;
+  --leaf-deep:    #2f4525;
+
+  --terracotta:   #c9622f;
+
+  --line:         rgba(26, 24, 20, 0.12);
+  --line-soft:    rgba(26, 24, 20, 0.06);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Geist', system-ui, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.55;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--lemon); color: var(--ink); }
+
+.serif       { font-family: 'Fraunces', serif; }
+.serif-it    { font-family: 'Instrument Serif', serif; font-style: italic; }
+
+/* Reusable */
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  font-weight: 500;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px; height: 1px;
+  background: currentColor;
+}
+
+/* Grain overlay everywhere */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+
+/* ─────────────── NAV ─────────────── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+.nav.scrolled {
+  background: rgba(250, 246, 237, 0.86);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  padding: 16px 48px;
+  border-bottom-color: var(--line);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.nav-logo img {
+  height: 44px;
+  width: auto;
+  transition: transform 0.4s ease;
+}
+
+.nav-logo:hover img { transform: rotate(-4deg); }
+
+.nav-logo-text {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding-top: 4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: var(--lemon);
+  transition: width 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.nav-links a:hover { color: var(--ink); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-cta {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-cta:hover {
+  background: var(--lemon);
+  color: var(--ink);
+}
+
+.nav-cta svg {
+  width: 14px; height: 14px;
+  transition: transform 0.3s;
+}
+.nav-cta:hover svg { transform: translateX(3px); }
+
+/* ─────────────── HERO ─────────────── */
+.hero {
+  min-height: 100vh;
+  padding: 140px 48px 80px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Lemon-yellow decorative blob */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 18%; right: -8%;
+  width: 520px; height: 520px;
+  background: radial-gradient(circle at center, var(--lemon-soft) 0%, transparent 65%);
+  filter: blur(40px);
+  z-index: 0;
+  animation: float 12s ease-in-out infinite;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%; left: -10%;
+  width: 460px; height: 460px;
+  background: radial-gradient(circle at center, rgba(74, 107, 58, 0.22) 0%, transparent 65%);
+  filter: blur(45px);
+  z-index: 0;
+  animation: float 14s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%     { transform: translate(-30px, 20px) scale(1.05); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.hero-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  font-weight: 500;
+}
+
+.hero-location .dot {
+  width: 6px; height: 6px;
+  background: var(--lemon-deep);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%     { opacity: 0.5; transform: scale(1.4); }
+}
+
+.hero h1 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(72px, 9vw, 156px);
+  line-height: 0.88;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 36px;
+  font-variation-settings: "opsz" 144;
+}
+
+.hero h1 .line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero h1 .line span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero h1 .line:nth-child(1) span { animation-delay: 0.1s; }
+.hero h1 .line:nth-child(2) span { animation-delay: 0.25s; }
+.hero h1 .line:nth-child(3) span { animation-delay: 0.4s; }
+
+@keyframes rise {
+  to { transform: translateY(0); }
+}
+
+.hero h1 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--lemon-deep);
+}
+
+.hero-sub {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--graphite);
+  max-width: 480px;
+  margin-bottom: 56px;
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 18px 28px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--lemon);
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 0;
+}
+
+.btn-primary:hover::before { transform: translateY(0); }
+.btn-primary:hover { color: var(--ink); }
+.btn-primary > * { position: relative; z-index: 1; }
+
+.btn-ghost {
+  color: var(--ink);
+  padding: 18px 6px;
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.btn-ghost svg { transition: transform 0.3s; }
+.btn-ghost:hover svg { transform: translate(3px, -3px); }
+
+/* Hero right column: editorial collage */
+.hero-visual {
+  position: relative;
+  height: 640px;
+}
+
+.hv-card {
+  position: absolute;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px -25px rgba(26, 24, 20, 0.25);
+}
+
+/* Big main image — abstract Puglia composition */
+.hv-main {
+  top: 0; right: 0;
+  width: 78%; height: 480px;
+  background:
+    /* Sky to sea gradient */
+    linear-gradient(180deg,
+      #f0e7d2 0%,
+      #f5e9b8 18%,
+      #f4c534 24%,
+      #f4c534 26%,
+      #f0e7d2 28%,
+      #d8d4c0 50%,
+      #7ca0b3 65%,
+      #3d6b80 100%);
+  overflow: hidden;
+  opacity: 0;
+  animation: cardIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(40px) rotate(2deg); }
+  to   { opacity: 1; transform: translateY(0) rotate(0); }
+}
+
+/* Sun */
+.hv-sun {
+  position: absolute;
+  top: 60px; right: 60px;
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: var(--lemon);
+  box-shadow: 0 0 60px rgba(244, 197, 52, 0.55);
+  animation: sunFloat 8s ease-in-out infinite;
+}
+
+@keyframes sunFloat {
+  0%, 100% { transform: translateY(0); }
+  50%     { transform: translateY(-12px); }
+}
+
+/* White Puglia houses silhouette */
+.hv-houses {
+  position: absolute;
+  bottom: 35%; left: 0; right: 0;
+  height: 80px;
+  background:
+    /* Trullo cones (white triangles with dark tops) */
+    linear-gradient(135deg, transparent 49.5%, #2a2520 49.5%, #2a2520 50.5%, transparent 50.5%) 0 0 / 40px 50px no-repeat,
+    /* Houses block */
+    linear-gradient(180deg, transparent 35%, var(--ivory) 35%);
+}
+
+.hv-houses::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 65%;
+  background: var(--ivory);
+  clip-path: polygon(
+    0% 100%, 0% 65%,
+    8% 30%, 14% 65%, 22% 65%,
+    28% 20%, 38% 20%, 42% 60%, 50% 60%,
+    55% 40%, 65% 25%, 72% 60%, 80% 60%,
+    85% 35%, 95% 35%, 100% 65%, 100% 100%
+  );
+}
+
+/* Sea ripples */
+.hv-main::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 35%;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px, transparent 6px,
+    rgba(255, 255, 255, 0.12) 6px, rgba(255, 255, 255, 0.12) 8px
+  );
+}
+
+/* Small label card */
+.hv-label {
+  bottom: 100px; left: 0;
+  width: 56%;
+  padding: 24px 28px;
+  z-index: 3;
+  background: var(--ivory);
+  opacity: 0;
+  animation: cardIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.6s forwards;
+}
+
+.hv-label .num {
+  font-family: 'Fraunces', serif;
+  font-size: 64px;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.hv-label .num em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--lemon-deep);
+}
+
+.hv-label .text {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  font-weight: 500;
+}
+
+/* Lemon decorative card */
+.hv-lemon {
+  bottom: 0; right: 60px;
+  width: 130px; height: 130px;
+  border-radius: 50%;
+  background: var(--lemon);
+  display: grid;
+  place-items: center;
+  z-index: 3;
+  border: 1px solid var(--line);
+  opacity: 0;
+  animation: cardIn 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards,
+             rotate 24s linear 2s infinite;
+  box-shadow: 0 20px 40px -10px rgba(217, 167, 22, 0.4);
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.hv-lemon-text {
+  position: absolute;
+  inset: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.hv-lemon-text svg {
+  width: 100%; height: 100%;
+}
+
+/* Scroll cue */
+.scroll-cue {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  font-weight: 500;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.4s forwards;
+}
+
+.scroll-cue::after {
+  content: '';
+  width: 1px; height: 40px;
+  background: linear-gradient(180deg, var(--pencil) 0%, transparent 100%);
+  animation: scrollLine 2.4s ease-in-out infinite;
+  transform-origin: top;
+}
+
+@keyframes scrollLine {
+  0%, 100% { transform: scaleY(0.6); opacity: 0.5; }
+  50%     { transform: scaleY(1); opacity: 1; }
+}
+
+/* ─────────────── MARQUEE BAR ─────────────── */
+.marquee {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 18px 0;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+  animation: marquee 38s linear infinite;
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.marquee-track em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--lemon);
+}
+
+.marquee-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--lemon);
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─────────────── SECTIONS ─────────────── */
+section { position: relative; }
+
+.section-pad { padding: 140px 48px; }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 100px;
+  align-items: end;
+  position: relative;
+}
+
+.section-head .num-chip {
+  display: inline-block;
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  color: var(--pencil);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+
+.section-head h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(52px, 6.5vw, 96px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  font-variation-settings: "opsz" 144;
+}
+
+.section-head h2 em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--lemon-deep);
+}
+
+.section-head .lead {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--graphite);
+  max-width: 460px;
+}
+
+/* ─────────────── WELCOME / ABOUT ─────────────── */
+.welcome { background: var(--cream); }
+
+.welcome-wrap {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 100px;
+  align-items: start;
+}
+
+.welcome-text {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  font-weight: 300;
+}
+
+.welcome-text .drop {
+  font-family: 'Fraunces', serif;
+  font-size: 130px;
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  float: left;
+  line-height: 0.78;
+  margin: 12px 18px -12px 0;
+  color: var(--lemon-deep);
+}
+
+.welcome-text p + p {
+  margin-top: 28px;
+  font-size: 22px;
+  color: var(--graphite);
+}
+
+.welcome-signature {
+  margin-top: 48px;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--pencil);
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.welcome-signature::before {
+  content: '';
+  width: 40px; height: 1px;
+  background: var(--pencil);
+}
+
+/* Feature stack */
+.feature-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.feature {
+  background: var(--ivory);
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  gap: 24px;
+  align-items: center;
+  transition: background 0.4s, padding-left 0.4s;
+  cursor: default;
+}
+
+.feature:hover {
+  background: var(--lemon-wash);
+  padding-left: 44px;
+}
+
+.feature-icon {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: background 0.4s, color 0.4s;
+}
+
+.feature:hover .feature-icon {
+  background: var(--lemon);
+}
+
+.feature-icon svg {
+  width: 22px; height: 22px;
+}
+
+.feature-body h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.feature-body p {
+  font-size: 13px;
+  color: var(--pencil);
+  line-height: 1.5;
+}
+
+.feature-arrow {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  transition: all 0.4s;
+}
+
+.feature:hover .feature-arrow {
+  background: var(--ink);
+  color: var(--cream);
+  transform: rotate(-45deg);
+}
+
+/* ─────────────── HOUSE RULES ─────────────── */
+.rules {
+  background: var(--ink);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+
+.rules::before {
+  content: '';
+  position: absolute;
+  top: 10%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(244, 197, 52, 0.12) 0%, transparent 60%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+.rules .section-head .num-chip { color: var(--lemon); }
+.rules .section-head h2 { color: var(--cream); }
+.rules .section-head h2 em { color: var(--lemon); }
+.rules .section-head .lead { color: rgba(250, 246, 237, 0.65); }
+
+.rules-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(250, 246, 237, 0.15);
+}
+
+.rule {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(250, 246, 237, 0.15);
+  padding: 56px 8px;
+  border-radius: 0;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 200px 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.rule::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(244, 197, 52, 0.06) 0%, transparent 100%);
+  transition: width 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  pointer-events: none;
+}
+
+.rule:hover {
+  background: transparent;
+  border-color: rgba(244, 197, 52, 0.3);
+  padding-left: 24px;
+}
+
+.rule:hover::before { width: 60%; }
+
+.rule-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 120px;
+  font-variation-settings: "opsz" 144;
+  line-height: 0.9;
+  color: var(--lemon);
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  letter-spacing: -0.04em;
+}
+
+.rule-num small {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  color: rgba(250, 246, 237, 0.5);
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-top: -4px;
+}
+
+.rule-main {
+  position: relative;
+  z-index: 1;
+}
+
+.rule h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  line-height: 1.05;
+  color: var(--cream);
+  margin-bottom: 20px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 144;
+}
+
+.rule-extra {
+  position: relative;
+  z-index: 1;
+}
+
+.rule p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(250, 246, 237, 0.72);
+}
+
+.rule p + p { margin-top: 14px; }
+
+.rule ul {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.rule li {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(250, 246, 237, 0.72);
+  padding: 6px 0 6px 20px;
+  position: relative;
+}
+
+.rule li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 16px;
+  width: 10px; height: 1px;
+  background: var(--lemon);
+}
+
+.rule strong {
+  color: var(--lemon);
+  font-weight: 500;
+}
+
+.rule-time {
+  font-family: 'Fraunces', serif;
+  font-weight: 300;
+  font-size: 52px;
+  font-variation-settings: "opsz" 144;
+  color: var(--lemon);
+  letter-spacing: -0.01em;
+  margin: 4px 0 16px;
+  line-height: 1;
+}
+
+.rule-time .sep {
+  color: rgba(244, 197, 52, 0.4);
+  margin: 0 12px;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+}
+
+/* Silence band */
+.silence {
+  margin-top: 60px;
+  padding: 48px 56px;
+  background: linear-gradient(120deg, rgba(244, 197, 52, 0.12) 0%, rgba(244, 197, 52, 0.04) 100%);
+  border: 1px solid rgba(244, 197, 52, 0.25);
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+
+.silence-icon {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: var(--lemon);
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+}
+
+.silence-text .label {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--lemon);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+
+.silence-text .body {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: var(--cream);
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.silence-text strong { color: var(--lemon); font-weight: 500; }
+
+.silence-clocks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  color: var(--lemon);
+  text-align: right;
+}
+
+.silence-clocks em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: rgba(250, 246, 237, 0.5);
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* ─────────────── RECYCLING ─────────────── */
+.recycling { background: var(--cream-2); }
+
+.recycle-card {
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 48px;
+  position: relative;
+}
+
+.recycle-grid {
+  display: grid;
+  grid-template-columns: 240px repeat(6, 1fr);
+  gap: 0;
+}
+
+.recycle-grid .head {
+  border-bottom: 1px solid var(--ink);
+  padding: 16px 12px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-align: center;
+  font-weight: 500;
+}
+
+.recycle-grid .head.first {
+  text-align: left;
+  padding-left: 0;
+}
+
+.recycle-grid .cat {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.recycle-grid .day {
+  padding: 22px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.recycle-grid .row-end {
+  border-bottom: none;
+}
+
+.dot {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.dot.organic    { background: #4a3622; }
+.dot.paper      { background: #2a6cb8; }
+.dot.plastic    { background: #e6a020; }
+.dot.unrec      { background: #3a3a3a; }
+.dot.glass      { background: var(--leaf); }
+.dot.diaper     { background: #1a2a5a; }
+.dot.tex        { background: #6b2a6b; }
+
+.recycle-notes {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.recycle-note {
+  padding: 22px 24px;
+  background: var(--cream);
+  border-left: 3px solid var(--lemon);
+  border-radius: 2px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+
+.recycle-note strong {
+  color: var(--ink);
+  font-weight: 600;
+  display: block;
+  margin-bottom: 4px;
+  font-family: 'Fraunces', serif;
+  font-size: 15px;
+}
+
+.recycle-note .hot {
+  color: var(--terracotta);
+  font-weight: 600;
+}
+
+/* ─────────────── EXPLORE / PLACES ─────────────── */
+.explore { background: var(--cream); position: relative; }
+
+.cat-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 80px;
+  padding: 6px;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  width: fit-content;
+}
+
+.cat-btn {
+  padding: 12px 22px;
+  background: transparent;
+  border: none;
+  font-family: 'Geist', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  cursor: pointer;
+  font-weight: 500;
+  border-radius: 999px;
+  transition: all 0.3s;
+}
+
+.cat-btn:hover { color: var(--ink); }
+
+.cat-btn.active {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  background: var(--ivory);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: default;
+}
+
+.place:hover {
+  transform: translateY(-8px);
+  border-color: var(--lemon);
+  box-shadow: 0 30px 60px -25px rgba(26, 24, 20, 0.25);
+}
+
+.place-img {
+  height: 240px;
+  position: relative;
+  overflow: hidden;
+}
+
+.place-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.15;
+}
+
+.place-img-icon {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-family: 'Fraunces', serif;
+  font-size: 140px;
+  font-weight: 300;
+  font-variation-settings: "opsz" 144;
+  color: rgba(255, 255, 255, 0.18);
+  z-index: 1;
+}
+
+.place-tag {
+  position: absolute;
+  top: 16px; left: 16px;
+  background: var(--ivory);
+  color: var(--ink);
+  padding: 6px 14px;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.place-dist {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: var(--ink);
+  color: var(--cream);
+  padding: 6px 14px;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.place-body {
+  padding: 28px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.place-name {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.place-where {
+  font-size: 12px;
+  color: var(--lemon-deep);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 500;
+}
+
+.place-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--graphite);
+  flex: 1;
+  margin-bottom: 22px;
+}
+
+.place-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.place-rating {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.place-rating .star {
+  color: var(--lemon-deep);
+  font-size: 16px;
+}
+
+.place-rating small {
+  font-family: 'Geist';
+  font-size: 11px;
+  color: var(--pencil-soft);
+  font-weight: 400;
+}
+
+.place-phone {
+  font-size: 11px;
+  color: var(--pencil);
+  letter-spacing: 0.05em;
+  font-family: 'Geist';
+}
+
+/* Place image backgrounds */
+.img-pizza   { background: linear-gradient(135deg, #c9622f 0%, #7a3618 100%); }
+.img-fish    { background: linear-gradient(135deg, #4a7a99 0%, #143e4d 100%); }
+.img-taverna { background: linear-gradient(135deg, #c89c4a 0%, #6a4a18 100%); }
+.img-bar     { background: linear-gradient(135deg, #6a7544 0%, #2e3a18 100%); }
+.img-beach   { background: linear-gradient(180deg, #f4e9c4 0%, #6ea2bd 50%, #2a5d75 100%); }
+.img-trulli  { background: linear-gradient(180deg, #f0e6d2 0%, #c8b896 60%, #6a7544 100%); }
+.img-castle  { background: linear-gradient(135deg, #8a7140 0%, #4a3a20 100%); }
+.img-stone   { background: linear-gradient(135deg, #e0c884 0%, #9a7530 100%); }
+.img-cave    { background: linear-gradient(180deg, #8a7140 0%, #4a3a20 60%, #2a1a0a 100%); }
+
+/* ─────────────── CONTACT / FOOTER ─────────────── */
+.contact {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 140px 48px 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  top: -30%; right: -10%;
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(244, 197, 52, 0.1) 0%, transparent 60%);
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.contact-wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.contact-headline {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: clamp(52px, 7vw, 120px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin-bottom: 80px;
+  max-width: 1100px;
+  font-variation-settings: "opsz" 144;
+}
+
+.contact-headline em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  color: var(--lemon);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 60px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid rgba(250, 246, 237, 0.15);
+}
+
+.contact-col h4 {
+  font-size: 11px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--lemon);
+  margin-bottom: 28px;
+  font-weight: 500;
+}
+
+.contact-item { margin-bottom: 20px; }
+
+.contact-item .label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 237, 0.4);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.contact-item .val {
+  font-family: 'Fraunces', serif;
+  font-size: 24px;
+  color: var(--cream);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.contact-item .val a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-item .val a:hover { color: var(--lemon); }
+
+.footer-bottom {
+  padding-top: 36px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 237, 0.4);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-brand img {
+  height: 36px;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+}
+
+.footer-brand span {
+  font-family: 'Fraunces', serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  color: var(--cream);
+}
+
+/* ─────────────── FADE-IN ON SCROLL ─────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────── RESPONSIVE ─────────────── */
+@media (max-width: 1100px) {
+  .hero-content { grid-template-columns: 1fr; gap: 40px; }
+  .hero-visual { display: none; }
+  .welcome-wrap { grid-template-columns: 1fr; gap: 60px; }
+  .section-head { grid-template-columns: 1fr; gap: 24px; }
+  .places-grid { grid-template-columns: repeat(2, 1fr); }
+  .rule { grid-template-columns: 140px 1fr; gap: 40px; }
+  .rule-extra { grid-column: 2; }
+  .rule-num { font-size: 88px; }
+  .rule h3 { font-size: 30px; }
+  .recycle-notes { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .silence { grid-template-columns: 1fr; gap: 20px; }
+  .silence-clocks { text-align: left; flex-direction: row; gap: 24px; }
+}
+
+@media (max-width: 720px) {
+  .wrap, section { padding-left: 24px !important; padding-right: 24px !important; }
+  .nav { padding: 20px 24px; }
+  .nav-links { display: none; }
+  .nav-logo-text { display: none; }
+  .section-pad { padding: 90px 24px; }
+  .hero { padding: 120px 24px 60px; min-height: 90vh; }
+  .places-grid { grid-template-columns: 1fr; }
+  .rule { grid-template-columns: 1fr; gap: 20px; padding: 40px 4px; }
+  .rule-extra { grid-column: 1; }
+  .rule-num { font-size: 72px; }
+  .rule h3 { font-size: 26px; }
+  .rule-time { font-size: 38px; }
+  .silence { padding: 32px 24px; }
+  .recycle-card { padding: 24px 16px; }
+  .recycle-grid { font-size: 12px; }
+  .recycle-grid .cat { font-size: 14px; }
+  .recycle-notes { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .welcome-text { font-size: 22px; }
+  .welcome-text .drop { font-size: 92px; }
+  .marquee-track { font-size: 18px; gap: 36px; }
+  .marquee-track span { gap: 36px; }
+  .recycle-grid { overflow-x: auto; display: block; }
+  .recycle-grid > div { min-width: 80px; display: inline-block; }
+}
+
+/* JSON-LD has no display; this prevents any FOUC issue with hero anim */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero h1 .line span { transform: translateY(0); }
+  .hero-sub, .hero-actions, .scroll-cue, .hv-main, .hv-label, .hv-lemon { opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- ════════ NAV ════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">
+    <img src="logo.png" alt="Kitros B&B" />
+    <span class="nav-logo-text">B&amp;B · Palagiano</span>
+  </a>
+  <div class="nav-links">
+    <a href="#benvenuto">Benvenuto</a>
+    <a href="#regole">Regole</a>
+    <a href="#raccolta">Raccolta</a>
+    <a href="#dintorni">Dintorni</a>
+  </div>
+  <a href="#contatti" class="nav-cta">
+    <span>Contatti</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+  </a>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-left">
+
+      <div class="hero-meta-top">
+        <span class="hero-location">
+          <span class="dot"></span>
+          Palagiano · Puglia · Italia
+        </span>
+      </div>
+
+      <h1>
+        <span class="line"><span>La <em>Puglia</em></span></span>
+        <span class="line"><span>ionica,</span></span>
+        <span class="line"><span>casa <em>tua.</em></span></span>
+      </h1>
+
+      <p class="hero-sub">
+        Un piccolo angolo di Mediterraneo a pochi minuti dalle spiagge dello Ionio, dalle gravine di Massafra e dai borghi della Magna Grecia.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#dintorni" class="btn-primary">
+          <span>Scopri i dintorni</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#regole" class="btn-ghost">
+          Regolamento casa
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hv-card hv-main">
+        <div class="hv-sun"></div>
+        <div class="hv-houses"></div>
+      </div>
+      <div class="hv-card hv-label">
+        <div class="num">04 <em>min</em></div>
+        <div class="text">dal mare in auto</div>
+      </div>
+      <div class="hv-card hv-lemon">
+        <svg viewBox="0 0 100 100" class="hv-lemon-text" aria-hidden="true">
+          <defs>
+            <path id="circle" d="M 50, 50 m -36, 0 a 36,36 0 1,1 72,0 a 36,36 0 1,1 -72,0" />
+          </defs>
+          <text font-family="Fraunces, serif" font-size="11" letter-spacing="3" fill="currentColor">
+            <textPath href="#circle">KITROS · B&amp;B · PALAGIANO · PUGLIA · </textPath>
+          </text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">scroll</div>
+</section>
+
+<!-- ════════ MARQUEE ════════ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>
+      Mare <em>Ionio</em> <span class="marquee-dot"></span>
+      Trulli &amp; <em>pietra</em> <span class="marquee-dot"></span>
+      Gravine <em>millenarie</em> <span class="marquee-dot"></span>
+      Matera &amp; <em>Alberobello</em> <span class="marquee-dot"></span>
+      Cucina <em>pugliese</em> <span class="marquee-dot"></span>
+      Limoni <em>al sole</em> <span class="marquee-dot"></span>
+    </span>
+    <span>
+      Mare <em>Ionio</em> <span class="marquee-dot"></span>
+      Trulli &amp; <em>pietra</em> <span class="marquee-dot"></span>
+      Gravine <em>millenarie</em> <span class="marquee-dot"></span>
+      Matera &amp; <em>Alberobello</em> <span class="marquee-dot"></span>
+      Cucina <em>pugliese</em> <span class="marquee-dot"></span>
+      Limoni <em>al sole</em> <span class="marquee-dot"></span>
+    </span>
+  </div>
+</div>
+
+<!-- ════════ WELCOME / ABOUT ════════ -->
+<section class="welcome section-pad" id="benvenuto">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num-chip">— I · Benvenuto</div>
+        <h2>La nostra <em>casa,</em><br>per qualche giorno la <em>vostra.</em></h2>
+      </div>
+      <p class="lead">Una lettera dall'host, perché ogni soggiorno cominci con il piede giusto.</p>
+    </div>
+
+    <div class="welcome-wrap">
+      <div class="welcome-text reveal">
+        <p><span class="drop">G</span>entile ospite, ti do il benvenuto nella mia casa che per questi giorni sarà la tua. Ho cercato di renderla confortevole il più possibile, pensando a tutte le esigenze di chi viaggia.</p>
+        <p>Spero di esserci riuscita, in modo da rendere il tuo soggiorno il più rilassante possibile. Per ogni richiesta sono sempre raggiungibile — non esitare a chiedere.</p>
+        <div class="welcome-signature">L'host</div>
+      </div>
+
+      <div class="feature-stack reveal">
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 12l9-9 9 9M5 10v10h14V10"/>
+            </svg>
+          </div>
+          <div class="feature-body">
+            <h4>Casa intera</h4>
+            <p>Riservata in esclusiva agli ospiti registrati.</p>
+          </div>
+          <div class="feature-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12.55a11 11 0 0 1 14 0M8.5 16a6 6 0 0 1 7 0M2 8.82a15 15 0 0 1 20 0M12 20h.01"/>
+            </svg>
+          </div>
+          <div class="feature-body">
+            <h4>Wi-Fi compreso</h4>
+            <p>Connessione veloce in tutto l'appartamento.</p>
+          </div>
+          <div class="feature-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L4 6v6c0 5 3.5 9.5 8 10 4.5-.5 8-5 8-10V6l-8-4z"/>
+            </svg>
+          </div>
+          <div class="feature-body">
+            <h4>Quartiere quieto</h4>
+            <p>In paese, lontani dal trambusto turistico.</p>
+          </div>
+          <div class="feature-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 2a8 8 0 0 0-8 8c0 6 8 12 8 12s8-6 8-12a8 8 0 0 0-8-8z"/>
+            </svg>
+          </div>
+          <div class="feature-body">
+            <h4>Posizione strategica</h4>
+            <p>Tra spiagge ioniche, gravine e Matera.</p>
+          </div>
+          <div class="feature-arrow">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ HOUSE RULES ════════ -->
+<section class="rules section-pad" id="regole">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num-chip">— II · Regolamento</div>
+        <h2>Il <em>regolamento</em><br>della casa</h2>
+      </div>
+      <p class="lead">Poche regole, semplici, pensate per il comfort di tutti gli ospiti e nel rispetto delle norme locali.</p>
+    </div>
+
+    <div class="rules-grid">
+
+      <div class="rule reveal">
+        <div class="rule-num">01<small>Orari</small></div>
+        <div class="rule-main">
+          <h3>Check-in &amp; check-out</h3>
+          <p>L'appartamento è riservato esclusivamente agli ospiti registrati: è vietato l'accesso ai non autorizzati.</p>
+        </div>
+        <div class="rule-extra">
+          <div class="rule-time">14:00<span class="sep">→</span>18:00</div>
+          <p>Fascia oraria per prendere possesso dell'unità abitativa nel giorno dell'arrivo. Andrà lasciata libera entro le <strong>10:00</strong> del giorno della partenza.</p>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">02<small>Identità</small></div>
+        <div class="rule-main">
+          <h3>Documenti d'identità</h3>
+          <p>All'arrivo è obbligatorio esibire un documento di identità in corso di validità per la registrazione, secondo le vigenti disposizioni di legge.</p>
+        </div>
+        <div class="rule-extra">
+          <p>I dati acquisiti sono trattati in conformità al <strong>Regolamento UE 2016/679 (GDPR)</strong> e utilizzati esclusivamente per le finalità previste dalla normativa.</p>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">03<small>Cura</small></div>
+        <div class="rule-main">
+          <h3>Pulizia &amp; biancheria</h3>
+          <p>L'appartamento e la biancheria vengono consegnati in perfetto ordine e pulizia. La biancheria è in dotazione della lavanderia, quindi è vietato lavarla.</p>
+        </div>
+        <div class="rule-extra">
+          <p>Cambio biancheria su richiesta al costo di <strong>5 €</strong> a cambio. Per qualsiasi necessità contattare l'host.</p>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">04<small>Responsabilità</small></div>
+        <div class="rule-main">
+          <h3>Oggetti personali &amp; danni</h3>
+          <p>L'ospite è invitato a custodire personalmente gli oggetti di valore lasciati nell'appartamento: l'host non risponde di eventuali smarrimenti.</p>
+        </div>
+        <div class="rule-extra">
+          <p>Eventuali danni accertati dopo verifica di responsabilità dovranno essere risarciti dall'ospite. Oggetti mancanti dalla dotazione delle camere verranno addebitati.</p>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">05<small>Buone abitudini</small></div>
+        <div class="rule-main">
+          <h3>Raccomandazioni</h3>
+          <p>Piccoli gesti che ci aiutano a mantenere la casa accogliente e a ridurre il consumo di risorse.</p>
+        </div>
+        <div class="rule-extra">
+          <ul>
+            <li>Spegnere le luci uscendo dalla camera</li>
+            <li>Non lasciare finestre e balconi aperti durante l'assenza</li>
+            <li>Scollegare i carica-batterie quando non in uso</li>
+            <li>Non lasciare il climatizzatore acceso durante l'assenza</li>
+            <li>Tenere il volume della TV basso per non disturbare</li>
+            <li>Nei sanitari evitare di gettare oggetti che possano otturare</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">06<small>Divieti</small></div>
+        <div class="rule-main">
+          <h3>All'interno dei locali</h3>
+          <p><strong>Vietato fumare</strong> all'interno dei locali. È consentito fumare unicamente nella zona relax esterna.</p>
+        </div>
+        <div class="rule-extra">
+          <p>È severamente vietato bere alcolici e fare uso di sostanze stupefacenti all'interno dei locali.</p>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">07<small>Connessione</small></div>
+        <div class="rule-main">
+          <h3>Wi-Fi gratuito</h3>
+          <p>La casa è dotata di Wi-Fi in tutti gli ambienti. La connessione è veloce e adatta a smart working e streaming.</p>
+        </div>
+        <div class="rule-extra">
+          <p>Le credenziali di accesso vengono comunicate <strong>al momento del check-in</strong>, insieme alle istruzioni d'uso degli elettrodomestici.</p>
+        </div>
+      </div>
+
+      <div class="rule reveal">
+        <div class="rule-num">08<small>Assistenza</small></div>
+        <div class="rule-main">
+          <h3>In caso di necessità</h3>
+          <p>Per qualunque richiesta, urgenza o informazione, l'host è sempre raggiungibile telefonicamente.</p>
+        </div>
+        <div class="rule-extra">
+          <p>Il numero diretto viene comunicato in fase di prenotazione e all'arrivo. Vi auguriamo un buon soggiorno nella nostra casa.</p>
+        </div>
+      </div>
+
+      <div class="silence reveal">
+        <div class="silence-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l3 2"/>
+          </svg>
+        </div>
+        <div class="silence-text">
+          <div class="label">Silenzio &amp; tranquillità</div>
+          <div class="body">In conformità al regolamento della casa e alle norme della Polizia Municipale, si richiede di osservare il silenzio nelle fasce orarie indicate.</div>
+        </div>
+        <div class="silence-clocks">
+          <div><em>pomeriggio</em> 14:00 — 16:00</div>
+          <div><em>notte</em> 22:00 — 08:00</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ RECYCLING ════════ -->
+<section class="recycling section-pad" id="raccolta">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num-chip">— III · Sostenibilità</div>
+        <h2>Raccolta <em>differenziata</em></h2>
+      </div>
+      <p class="lead">Il calendario settimanale per il conferimento dei rifiuti. Una piccola cortesia che ci aiuta a custodire la Puglia.</p>
+    </div>
+
+    <div class="recycle-card reveal">
+      <div class="recycle-grid">
+        <div class="head first">Tipologia</div>
+        <div class="head">Lun</div>
+        <div class="head">Mar</div>
+        <div class="head">Mer</div>
+        <div class="head">Gio</div>
+        <div class="head">Ven</div>
+        <div class="head">Sab</div>
+
+        <div class="cat"><span class="dot organic"></span>Organico</div>
+        <div class="day"><span class="dot organic"></span></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot organic"></span></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot organic"></span></div>
+        <div class="day"><span class="dot organic"></span></div>
+
+        <div class="cat"><span class="dot paper"></span>Carta &amp; cartone</div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot paper"></span></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+
+        <div class="cat"><span class="dot plastic"></span>Plastica &amp; metalli</div>
+        <div class="day"></div>
+        <div class="day"><span class="dot plastic"></span></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot plastic"></span></div>
+
+        <div class="cat"><span class="dot unrec"></span>Non riciclabile</div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot unrec"></span></div>
+        <div class="day"></div>
+        <div class="day"></div>
+
+        <div class="cat"><span class="dot glass"></span>Vetro</div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot glass"></span></div>
+        <div class="day"></div>
+
+        <div class="cat"><span class="dot diaper"></span>Pannolini</div>
+        <div class="day"></div>
+        <div class="day"><span class="dot diaper"></span></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot diaper"></span></div>
+        <div class="day"></div>
+        <div class="day"><span class="dot diaper"></span></div>
+
+        <div class="cat row-end"><span class="dot tex"></span>Rifiuti tessili</div>
+        <div class="day row-end"><span class="dot tex"></span></div>
+        <div class="day row-end"></div>
+        <div class="day row-end"></div>
+        <div class="day row-end"></div>
+        <div class="day row-end"></div>
+        <div class="day row-end"></div>
+      </div>
+
+      <div class="recycle-notes">
+        <div class="recycle-note">
+          <strong>Cartone &amp; plastica</strong>
+          Appiattirli per ridurre il volume prima del conferimento.
+        </div>
+        <div class="recycle-note">
+          <strong>Non riciclabile</strong>
+          Solo in buste trasparenti. Niente sacchi neri.
+        </div>
+        <div class="recycle-note">
+          <strong>Tessili</strong>
+          Solo il lunedì, max 2 buste 90×120 cm.
+        </div>
+        <div class="recycle-note">
+          <strong>Ingombranti</strong>
+          Ritiro gratuito lun/mar al numero verde <span class="hot">800 195 314</span> (max 3 pezzi).
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ EXPLORE ════════ -->
+<section class="explore section-pad" id="dintorni">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <div class="num-chip">— IV · Dintorni</div>
+        <h2>Cosa <em>fare</em><br>qui intorno</h2>
+      </div>
+      <p class="lead">Una selezione personale di ristoranti, spiagge e luoghi da vedere. Tutto a breve distanza in auto da Palagiano.</p>
+    </div>
+
+    <div class="cat-bar reveal" role="tablist">
+      <button class="cat-btn active" data-cat="all">Tutto</button>
+      <button class="cat-btn" data-cat="food">Ristoranti</button>
+      <button class="cat-btn" data-cat="bar">Bar &amp; Caffè</button>
+      <button class="cat-btn" data-cat="beach">Spiagge</button>
+      <button class="cat-btn" data-cat="culture">Borghi &amp; cultura</button>
+    </div>
+
+    <div class="places-grid">
+
+      <!-- FOOD -->
+      <article class="place reveal" data-cat="food">
+        <div class="place-img img-pizza">
+          <span class="place-tag">Pizzeria · Ristorante</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">T</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Tagarié</h3>
+          <div class="place-where">pizza &amp; cucina pugliese</div>
+          <p class="place-desc">Una delle insegne più amate di Palagiano. Pizza eccellente, paste casalinghe (la carbonara è leggendaria), accoglienza familiare e prezzi onesti.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.7 <small>/ 474</small></div>
+            <div class="place-phone">+39 320 065 7090</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="food">
+        <div class="place-img img-taverna">
+          <span class="place-tag">Braceria</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">F</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Fuoco Matto</h3>
+          <div class="place-where">carne alla brace</div>
+          <p class="place-desc">Braceria a conduzione familiare. Carne locale alla griglia, antipasti curati, atmosfera accogliente. Ottimo rapporto qualità-prezzo.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.6 <small>/ 191</small></div>
+            <div class="place-phone">+39 340 827 8468</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="food">
+        <div class="place-img img-fish">
+          <span class="place-tag">Pesce · Pizza</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">G</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">La Gardenia Blu</h3>
+          <div class="place-where">cucina italiana</div>
+          <p class="place-desc">Storico ristorante-pizzeria in paese. Porzioni abbondanti, piatti di pesce e pizze classiche, ambiente familiare.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.2 <small>/ 720</small></div>
+            <div class="place-phone">+39 099 888 4979</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="food">
+        <div class="place-img img-cave">
+          <span class="place-tag">Osteria · grotta</span>
+          <span class="place-dist">~7 km</span>
+          <div class="place-img-icon">O</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Osteria La Botte</h3>
+          <div class="place-where">Massafra · cucina tipica</div>
+          <p class="place-desc">Una sala scavata nella roccia, parmigiana memorabile, piatti pugliesi autentici. Atmosfera unica. Prenotazione consigliata.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.8 <small>/ 89</small></div>
+            <div class="place-phone">+39 329 016 0770</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="food">
+        <div class="place-img img-cave">
+          <span class="place-tag">Fine dining</span>
+          <span class="place-dist">~7 km</span>
+          <div class="place-img-icon">C</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Cavae</h3>
+          <div class="place-where">Massafra · cucina e radici</div>
+          <p class="place-desc">Sala scavata in una grotta naturale, design minimal e cucina di mare di alta scuola. Per una cena speciale, romantica.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.9 <small>/ 96</small></div>
+            <div class="place-phone">+39 393 409 2130</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="food">
+        <div class="place-img img-taverna">
+          <span class="place-tag">Lounge</span>
+          <span class="place-dist">~9 km</span>
+          <div class="place-img-icon">D</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">DeMi Lounge</h3>
+          <div class="place-where">Massafra · pesce ricercato</div>
+          <p class="place-desc">Ristorante elegante con cucina di pesce curata. Antipasti generosi, baccalà cremoso, conduzione familiare. Recensioni straordinarie.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 5.0 <small>/ 115</small></div>
+            <div class="place-phone">+39 320 943 4418</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- BAR -->
+      <article class="place reveal" data-cat="bar">
+        <div class="place-img img-bar">
+          <span class="place-tag">Caffetteria</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">M</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Mon Café</h3>
+          <div class="place-where">colazione &amp; aperitivo</div>
+          <p class="place-desc">Il bar dove far colazione la mattina. Cornetti freschi (pistacchio, cioccolato, creazioni originali), caffè eccellente, staff sorridente.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.9 <small>/ 64</small></div>
+            <div class="place-phone">lun — sab</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="bar">
+        <div class="place-img img-bar">
+          <span class="place-tag">Bar · Aperitivo</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">B</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Bar Movida</h3>
+          <div class="place-where">dalla mattina a notte</div>
+          <p class="place-desc">Aperto dalle 6 all'una. Cornetti vegan, aperitivi ricchi, crepe, pucce e piadine. Cioccolata calda d'inverno. Il ritrovo del paese.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.4 <small>/ 223</small></div>
+            <div class="place-phone">+39 099 884 1737</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="bar">
+        <div class="place-img img-bar">
+          <span class="place-tag">Caffè · 24h</span>
+          <span class="place-dist">~2 km</span>
+          <div class="place-img-icon">D</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Dream Café</h3>
+          <div class="place-where">SS 7 · aperto 24h</div>
+          <p class="place-desc">Stazione di servizio con bar e tabacchi, sempre aperto. Caffè eccellente, bagni curati, staff cordiale. Pratico per chi parte all'alba.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.4 <small>/ 59</small></div>
+            <div class="place-phone">+39 099 888 2880</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="bar">
+        <div class="place-img img-bar">
+          <span class="place-tag">Lounge bar</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">S</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Spazio MVD</h3>
+          <div class="place-where">Viale Chiatona · contemporaneo</div>
+          <p class="place-desc">Locale dal design urbano e contemporaneo, perfetto per chi ama un'atmosfera moderna. Aperto dalle 6 del mattino a tarda sera. Buono per un aperitivo serale o un caffè in pausa.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> aperto fino a tardi</div>
+            <div class="place-phone">+39 099 945 8045</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="bar">
+        <div class="place-img img-bar">
+          <span class="place-tag">Bistro · Cocktail</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">C</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Crival</h3>
+          <div class="place-where">Via per Torre S. Domenico</div>
+          <p class="place-desc">Bistro versatile, dalla colazione al cocktail di mezzanotte. Menù curato (provate il katsuburger), aperitivi creativi e servizio veloce. Aperto fino alle 2 di notte, perfetto anche dopo cena.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.4 <small>/ 521</small></div>
+            <div class="place-phone">+39 099 888 2611</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="bar">
+        <div class="place-img img-bar">
+          <span class="place-tag">Panificio · Caffetteria</span>
+          <span class="place-dist">Palagiano</span>
+          <div class="place-img-icon">A</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">L'Artista</h3>
+          <div class="place-where">Via IV Novembre · aperto 24h</div>
+          <p class="place-desc">Panificio-caffetteria sempre aperto. Pane proteico, focacce, pucce ripiene di altissima qualità. Atmosfera informale, perfetta per un pranzo veloce o una serata con amici. Una delle insegne più amate del paese.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.3 <small>/ 640</small></div>
+            <div class="place-phone">+39 099 946 6791</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- BEACH -->
+      <article class="place reveal" data-cat="beach">
+        <div class="place-img img-beach">
+          <span class="place-tag">Spiaggia</span>
+          <span class="place-dist">~25 km</span>
+          <div class="place-img-icon">~</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Castellaneta Marina</h3>
+          <div class="place-where">la spiaggia più vicina</div>
+          <p class="place-desc">Lunga distesa di sabbia fine, acqua pulita, lidi attrezzati e zone libere. Pineta alle spalle, parcheggi. La spiaggia di riferimento.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.4 <small>/ 1.4k</small></div>
+            <div class="place-phone">accesso libero</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="beach">
+        <div class="place-img img-beach">
+          <span class="place-tag">Spiaggia libera</span>
+          <span class="place-dist">~30 km</span>
+          <div class="place-img-icon">≈</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Spiaggia Termitosa</h3>
+          <div class="place-where">Castellaneta · selvaggia</div>
+          <p class="place-desc">Un piccolo paradiso poco frequentato anche ad agosto. Dune, sabbia chiara, mare limpido. Niente servizi: il premio è la natura intatta.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.6 <small>/ 340</small></div>
+            <div class="place-phone">accesso libero</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="beach">
+        <div class="place-img img-beach">
+          <span class="place-tag">Lido</span>
+          <span class="place-dist">~30 km</span>
+          <div class="place-img-icon">Z</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Lido Zanzibar</h3>
+          <div class="place-where">Marina di Ginosa · attrezzato</div>
+          <p class="place-desc">Stabilimento curato con bar, ristorante e ottimi cocktail. Acqua cristallina, atmosfera vivace. Ideale per una giornata di mare attrezzata.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.3 <small>/ 944</small></div>
+            <div class="place-phone">+39 345 813 0064</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="beach">
+        <div class="place-img img-beach">
+          <span class="place-tag">Lido</span>
+          <span class="place-dist">~30 km</span>
+          <div class="place-img-icon">F</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Lido Franco</h3>
+          <div class="place-where">Marina di Ginosa · famiglie</div>
+          <p class="place-desc">Lido storico, spiaggia grande, parcheggio ampio. Lettini, ombrelloni, bar a prezzi onesti. Acqua bassa per molti metri: perfetto coi bambini.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.1 <small>/ 1k</small></div>
+            <div class="place-phone">+39 393 287 3663</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CULTURE -->
+      <article class="place reveal" data-cat="culture">
+        <div class="place-img img-stone">
+          <span class="place-tag">UNESCO · Sassi</span>
+          <span class="place-dist">~50 km</span>
+          <div class="place-img-icon">M</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Matera</h3>
+          <div class="place-where">Basilicata · città dei Sassi</div>
+          <p class="place-desc">Patrimonio UNESCO, tra le città più antiche del mondo abitate ininterrottamente. Vicoli scavati nella roccia, case-grotta, la Murgia.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.6 <small>/ 2.7k</small></div>
+            <div class="place-phone">visita libera</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="culture">
+        <div class="place-img img-trulli">
+          <span class="place-tag">UNESCO · Trulli</span>
+          <span class="place-dist">~55 km</span>
+          <div class="place-img-icon">A</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Alberobello</h3>
+          <div class="place-where">Valle d'Itria · Rione Monti</div>
+          <p class="place-desc">La capitale dei trulli, patrimonio UNESCO. Centinaia di costruzioni coniche bianche, il Trullo Sovrano, vicoli pittoreschi.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.8 <small>/ 14k</small></div>
+            <div class="place-phone">visita libera</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="culture">
+        <div class="place-img img-castle">
+          <span class="place-tag">Centro storico</span>
+          <span class="place-dist">~30 km</span>
+          <div class="place-img-icon">T</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Taranto Vecchia</h3>
+          <div class="place-where">la città dei due mari</div>
+          <p class="place-desc">Il Castello Aragonese (visita guidata gratuita), il Ponte Girevole, il MArTA con gli Ori di Taranto. Da girare a piedi.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.7 <small>/ 10k</small></div>
+            <div class="place-phone">Castello gratuito</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="culture">
+        <div class="place-img img-cave">
+          <span class="place-tag">Natura · Gravina</span>
+          <span class="place-dist">~10 km</span>
+          <div class="place-img-icon">M</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Gravina Madonna della Scala</h3>
+          <div class="place-where">Massafra · villaggio rupestre</div>
+          <p class="place-desc">Un canyon abitato fin dal Neolitico, oltre duecento grotte, chiese rupestri bizantine. Da visitare con guida.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.3</div>
+            <div class="place-phone">+39 099 880 4695</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="place reveal" data-cat="culture">
+        <div class="place-img img-cave">
+          <span class="place-tag">Natura · Trekking</span>
+          <span class="place-dist">~15 km</span>
+          <div class="place-img-icon">P</div>
+        </div>
+        <div class="place-body">
+          <h3 class="place-name">Gravina di Petruscio</h3>
+          <div class="place-where">Mottola · canyon rupestre</div>
+          <p class="place-desc">Un piccolo canyon mozzafiato con grotte abitate per secoli da pastori ed eremiti. Sentiero immerso nella natura, scarpe comode obbligatorie.</p>
+          <div class="place-foot">
+            <div class="place-rating"><span class="star">★</span> 4.1 <small>/ 46</small></div>
+            <div class="place-phone">+39 099 886 7640</div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════════ CONTACT ════════ -->
+<section class="contact" id="contatti">
+  <div class="contact-wrap">
+    <h2 class="contact-headline reveal">
+      Vi auguro un <em>buon</em><br>soggiorno nella <em>nostra</em><br>piccola casa.
+    </h2>
+
+    <div class="contact-grid reveal">
+      <div class="contact-col">
+        <h4>Per prenotare</h4>
+        <div class="contact-item">
+          <div class="label">Email</div>
+          <div class="val"><a href="mailto:info@kitros.it">info@kitros.it</a></div>
+        </div>
+        <div class="contact-item">
+          <div class="label">Risposta</div>
+          <div class="val">in giornata</div>
+        </div>
+      </div>
+
+      <div class="contact-col">
+        <h4>Telefono</h4>
+        <div class="contact-item">
+          <div class="label">Solo per ospiti</div>
+          <div class="val">comunicato in prenotazione</div>
+        </div>
+        <div class="contact-item">
+          <div class="label">Lingue</div>
+          <div class="val">Italiano · English</div>
+        </div>
+      </div>
+
+      <div class="contact-col">
+        <h4>La casa</h4>
+        <div class="contact-item">
+          <div class="label">Dove siamo</div>
+          <div class="val">Palagiano (TA)<br>Puglia, Italia</div>
+        </div>
+        <div class="contact-item">
+          <div class="label">Check-in</div>
+          <div class="val">14:00 — 18:00</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-brand">
+        <img src="logo.png" alt="Kitros" />
+        <span>Kitros B&amp;B · Palagiano</span>
+      </div>
+      <div>© 2026 · Tutti i diritti riservati</div>
+    </div>
+  </div>
+</section>
+
+<!-- JSON-LD for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Kitros B&B",
+  "description": "B&B a Palagiano (TA), nel cuore della Puglia ionica. Tra spiagge, gravine, Matera e Alberobello.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Palagiano",
+    "addressRegion": "TA",
+    "addressCountry": "IT"
+  },
+  "email": "info@kitros.it",
+  "priceRange": "€€"
+}
+</script>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+    lastScroll = window.scrollY;
+  });
+
+  // Category filter
+  const buttons = document.querySelectorAll('.cat-btn');
+  const places = document.querySelectorAll('.place');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      places.forEach((p, i) => {
+        if (cat === 'all' || p.dataset.cat === cat) {
+          p.style.display = '';
+          p.style.animation = 'none';
+          // restart reveal
+          requestAnimationFrame(() => {
+            p.style.opacity = '0';
+            p.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              p.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
+              p.style.opacity = '1';
+              p.style.transform = 'translateY(0)';
+            }, i * 40);
+          });
+        } else {
+          p.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('in'), i * 80);
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  reveals.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
