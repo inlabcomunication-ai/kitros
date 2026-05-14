@@ -1643,6 +1643,333 @@ section { position: relative; }
   }
 }
 
+/* ═══════════════════════════════════════════
+   HAMBURGER MENU & MOBILE NAVIGATION
+═══════════════════════════════════════════ */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.3s;
+}
+
+.nav-toggle span {
+  display: block;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  height: 1.5px;
+  background: var(--ink);
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.6, 0, 0.4, 1);
+}
+
+.nav-toggle span:nth-child(1) { top: 17px; }
+.nav-toggle span:nth-child(2) { bottom: 17px; }
+
+.nav-toggle.is-open {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.nav-toggle.is-open span {
+  background: var(--cream);
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg) translateY(-50%);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  bottom: auto;
+  top: 50%;
+  transform: rotate(-45deg) translateY(-50%);
+}
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px 32px 40px;
+  transform: translateY(-100%);
+  transition: transform 0.5s cubic-bezier(0.85, 0, 0.15, 1);
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+.mobile-menu.is-open {
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mm-link {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line-soft);
+  text-decoration: none;
+  color: var(--ink);
+  font-family: 'Fraunces', serif;
+  letter-spacing: -0.01em;
+  transition: padding-left 0.3s;
+}
+
+.mm-link:active { padding-left: 12px; }
+
+.mm-num {
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  color: var(--graphite);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+  min-width: 24px;
+}
+
+.mm-label {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.mm-cta .mm-label em,
+.mm-cta .mm-label {
+  font-style: italic;
+  color: var(--terracotta);
+}
+
+.mobile-menu-foot {
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.mm-foot-label {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.mm-foot-phone {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+body.menu-open { overflow: hidden; }
+
+/* ═══════════════════════════════════════════
+   MOBILE COLLAPSE: accordion rules
+═══════════════════════════════════════════ */
+.rule-toggle {
+  display: none;
+}
+
+/* ═══════════════════════════════════════════
+   SHOW MORE — places
+═══════════════════════════════════════════ */
+.show-more-wrap {
+  display: none;
+  margin-top: 28px;
+  text-align: center;
+}
+
+.show-more-btn {
+  background: var(--ink);
+  color: var(--cream);
+  border: none;
+  padding: 16px 32px;
+  border-radius: 999px;
+  font-family: 'Geist', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s;
+}
+
+.show-more-btn:active { transform: scale(0.97); }
+
+.show-more-btn .arrow {
+  transition: transform 0.3s;
+  display: inline-block;
+}
+
+.show-more-btn.is-expanded .arrow {
+  transform: rotate(180deg);
+}
+
+.place.is-filtered {
+  display: none !important;
+}
+
+/* ───────── Mobile-only behaviors ───────── */
+@media (max-width: 720px) {
+  .nav-cta { display: none !important; }
+  .nav-toggle { display: block; }
+
+  /* Accordion rules */
+  .rule {
+    padding: 0 !important;
+    border-bottom: 1px solid var(--line-soft);
+    border-radius: 0;
+    gap: 0 !important;
+  }
+  .rule:last-of-type { border-bottom: none; }
+
+  .rule-toggle {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 0;
+    cursor: pointer;
+    width: 100%;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-family: inherit;
+    color: var(--ink);
+  }
+
+  .rule-toggle .rt-num {
+    font-family: 'Geist', sans-serif;
+    font-size: 12px;
+    color: var(--graphite);
+    letter-spacing: 0.15em;
+    font-weight: 500;
+    min-width: 28px;
+  }
+
+  .rule-toggle .rt-title {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .rule-toggle .rt-icon {
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    position: relative;
+    transition: all 0.35s cubic-bezier(0.6, 0, 0.4, 1);
+    flex-shrink: 0;
+    background: transparent;
+  }
+
+  .rule-toggle .rt-icon::before,
+  .rule-toggle .rt-icon::after {
+    content: '';
+    position: absolute;
+    background: var(--ink);
+    transition: all 0.35s cubic-bezier(0.6, 0, 0.4, 1);
+  }
+
+  .rule-toggle .rt-icon::before {
+    width: 11px;
+    height: 1.5px;
+  }
+
+  .rule-toggle .rt-icon::after {
+    width: 1.5px;
+    height: 11px;
+  }
+
+  .rule.is-open .rt-icon {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .rule.is-open .rt-icon::before,
+  .rule.is-open .rt-icon::after {
+    background: var(--cream);
+  }
+
+  .rule.is-open .rt-icon::after {
+    transform: rotate(90deg);
+    opacity: 0;
+  }
+
+  .rule-num {
+    display: none;
+  }
+
+  .rule-main,
+  .rule-extra {
+    display: none;
+    padding: 0 0 24px 44px;
+    grid-column: 1 / -1 !important;
+  }
+
+  .rule-main h3 {
+    display: none;
+  }
+
+  .rule.is-open .rule-main,
+  .rule.is-open .rule-extra {
+    display: block;
+  }
+
+  /* Show more on places */
+  .places-grid .place:nth-child(n+4):not(.always-show) {
+    display: none;
+  }
+  .places-grid.is-expanded .place {
+    display: flex;
+  }
+  .places-grid .place.is-filtered {
+    display: none !important;
+  }
+  .show-more-wrap { display: block; }
+
+  /* Recycle notes - simplified */
+  .recycle-notes {
+    gap: 12px;
+  }
+
+  /* Hero compactness on small screens */
+  .hero { padding: 100px 24px 50px; }
+
+  /* Welcome section shorter */
+  .welcome { padding: 70px 24px !important; }
+
+  /* Contact tighter */
+  .contact { padding-top: 70px !important; padding-bottom: 50px !important; }
+}
+
 /* JSON-LD has no display; this prevents any FOUC issue with hero anim */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1673,7 +2000,26 @@ section { position: relative; }
     <span>Contatti</span>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
   </a>
+  <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+  </button>
 </nav>
+
+<!-- Mobile fullscreen menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <a href="#benvenuto" class="mm-link"><span class="mm-num">01</span><span class="mm-label">Benvenuto</span></a>
+    <a href="#regole" class="mm-link"><span class="mm-num">02</span><span class="mm-label">Regolamento</span></a>
+    <a href="#raccolta" class="mm-link"><span class="mm-num">03</span><span class="mm-label">Raccolta</span></a>
+    <a href="#dintorni" class="mm-link"><span class="mm-num">04</span><span class="mm-label">Dintorni</span></a>
+    <a href="#contatti" class="mm-link mm-cta"><span class="mm-num">05</span><span class="mm-label">Contatti</span></a>
+  </div>
+  <div class="mobile-menu-foot">
+    <div class="mm-foot-label">Host disponibile</div>
+    <a href="tel:+393881163523" class="mm-foot-phone">+39 388 116 3523</a>
+  </div>
+</div>
 
 <!-- ════════ HERO ════════ -->
 <section class="hero">
@@ -2565,6 +2911,13 @@ section { position: relative; }
       </article>
 
     </div>
+
+    <div class="show-more-wrap">
+      <button class="show-more-btn" id="showMoreBtn" type="button">
+        <span class="label">Mostra tutti i luoghi</span>
+        <span class="arrow" aria-hidden="true">↓</span>
+      </button>
+    </div>
   </div>
 </section>
 
@@ -2644,44 +2997,117 @@ section { position: relative; }
 <script>
   // Nav scroll state
   const nav = document.getElementById('nav');
-  let lastScroll = 0;
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
-    lastScroll = window.scrollY;
   });
 
-  // Category filter
+  // ─── Mobile hamburger menu ──────────────────────
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const body = document.body;
+
+  function closeMenu() {
+    navToggle.classList.remove('is-open');
+    mobileMenu.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    body.classList.remove('menu-open');
+  }
+  function openMenu() {
+    navToggle.classList.add('is-open');
+    mobileMenu.classList.add('is-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    body.classList.add('menu-open');
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener('click', () => {
+      if (navToggle.classList.contains('is-open')) closeMenu();
+      else openMenu();
+    });
+  }
+
+  if (mobileMenu) {
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => setTimeout(closeMenu, 80));
+    });
+  }
+
+  // Close menu when resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 720) closeMenu();
+  });
+
+  // ─── Accordion rules (mobile only) ──────────────
+  const rules = document.querySelectorAll('.rule');
+  rules.forEach(rule => {
+    const numEl = rule.querySelector('.rule-num');
+    const titleEl = rule.querySelector('.rule-main h3');
+    if (!numEl || !titleEl) return;
+
+    // Extract number (first 2 chars) and title text
+    const numText = numEl.textContent.trim().slice(0, 2);
+    const title = titleEl.textContent.trim();
+
+    const btn = document.createElement('button');
+    btn.className = 'rule-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = `
+      <span class="rt-num">${numText}</span>
+      <span class="rt-title">${title}</span>
+      <span class="rt-icon" aria-hidden="true"></span>
+    `;
+    rule.insertBefore(btn, rule.firstChild);
+
+    btn.addEventListener('click', () => {
+      const isOpen = rule.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', isOpen);
+    });
+  });
+
+  // ─── Category filter (refactored) ───────────────
   const buttons = document.querySelectorAll('.cat-btn');
+  const placesGrid = document.querySelector('.places-grid');
   const places = document.querySelectorAll('.place');
+  let activeCategory = 'all';
 
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      const cat = btn.dataset.cat;
+      activeCategory = btn.dataset.cat;
+
       places.forEach((p, i) => {
-        if (cat === 'all' || p.dataset.cat === cat) {
-          p.style.display = '';
-          p.style.animation = 'none';
-          // restart reveal
-          requestAnimationFrame(() => {
-            p.style.opacity = '0';
-            p.style.transform = 'translateY(20px)';
-            setTimeout(() => {
-              p.style.transition = 'opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)';
-              p.style.opacity = '1';
-              p.style.transform = 'translateY(0)';
-            }, i * 40);
-          });
+        const visible = activeCategory === 'all' || p.dataset.cat === activeCategory;
+        if (visible) {
+          p.classList.remove('is-filtered');
+          p.style.opacity = '0';
+          p.style.transform = 'translateY(20px)';
+          setTimeout(() => {
+            p.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            p.style.opacity = '1';
+            p.style.transform = 'translateY(0)';
+          }, i * 30);
         } else {
-          p.style.display = 'none';
+          p.classList.add('is-filtered');
         }
       });
     });
   });
 
-  // Reveal on scroll
+  // ─── Show more places on mobile ─────────────────
+  const showMoreBtn = document.getElementById('showMoreBtn');
+  if (showMoreBtn && placesGrid) {
+    showMoreBtn.addEventListener('click', () => {
+      const expanded = placesGrid.classList.toggle('is-expanded');
+      showMoreBtn.classList.toggle('is-expanded');
+      showMoreBtn.querySelector('.label').textContent = expanded ? 'Mostra meno' : 'Mostra tutti i luoghi';
+    });
+  }
+
+  // ─── Reveal on scroll ───────────────────────────
   const reveals = document.querySelectorAll('.reveal');
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
