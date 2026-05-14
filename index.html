@@ -1105,6 +1105,66 @@ section { position: relative; }
 .dot.diaper     { background: #1a2a5a; }
 .dot.tex        { background: #6b2a6b; }
 
+/* Mobile-friendly list (hidden on desktop) */
+.recycle-list { display: none; list-style: none; padding: 0; margin: 0; }
+
+.rl-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+.rl-item:last-child { border-bottom: none; }
+
+.rl-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.rl-head .dot {
+  width: 18px;
+  height: 18px;
+}
+
+.rl-name {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+}
+
+.rl-days {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+}
+
+.rl-days .d {
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px 0;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--graphite);
+  opacity: 0.4;
+  border: 1px solid var(--line-soft);
+  transition: transform 0.3s ease;
+}
+
+.rl-days .d.on {
+  background: var(--ink);
+  color: var(--ivory);
+  opacity: 1;
+  border-color: var(--ink);
+}
+
+.rl-item:hover .rl-days .d.on { transform: translateY(-2px); }
+
 .recycle-notes {
   margin-top: 36px;
   display: grid;
@@ -1497,16 +1557,14 @@ section { position: relative; }
   .rule-time { font-size: 38px; }
   .silence { padding: 32px 24px; }
   .recycle-card { padding: 24px 16px; }
-  .recycle-grid { font-size: 12px; }
-  .recycle-grid .cat { font-size: 14px; }
+  .recycle-grid { display: none; }
+  .recycle-list { display: block; }
   .recycle-notes { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
   .welcome-text { font-size: 22px; }
   .welcome-text .drop { font-size: 92px; }
   .marquee-track { font-size: 18px; gap: 36px; }
   .marquee-track span { gap: 36px; }
-  .recycle-grid { overflow-x: auto; display: block; }
-  .recycle-grid > div { min-width: 80px; display: inline-block; }
 }
 
 /* JSON-LD has no display; this prevents any FOUC issue with hero anim */
@@ -1848,6 +1906,7 @@ section { position: relative; }
     </div>
 
     <div class="recycle-card reveal">
+      <!-- ▸ DESKTOP: tabella settimanale ────────────────────────────── -->
       <div class="recycle-grid">
         <div class="head first">Tipologia</div>
         <div class="head">Lun</div>
@@ -1913,6 +1972,108 @@ section { position: relative; }
         <div class="day row-end"></div>
         <div class="day row-end"></div>
       </div>
+
+      <!-- ▸ MOBILE: lista card con pill dei giorni ─────────────────── -->
+      <ul class="recycle-list">
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot organic"></span>
+            <span class="rl-name">Organico</span>
+          </div>
+          <div class="rl-days">
+            <span class="d on">Lun</span>
+            <span class="d">Mar</span>
+            <span class="d on">Mer</span>
+            <span class="d">Gio</span>
+            <span class="d on">Ven</span>
+            <span class="d on">Sab</span>
+          </div>
+        </li>
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot paper"></span>
+            <span class="rl-name">Carta &amp; cartone</span>
+          </div>
+          <div class="rl-days">
+            <span class="d">Lun</span>
+            <span class="d">Mar</span>
+            <span class="d on">Mer</span>
+            <span class="d">Gio</span>
+            <span class="d">Ven</span>
+            <span class="d">Sab</span>
+          </div>
+        </li>
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot plastic"></span>
+            <span class="rl-name">Plastica &amp; metalli</span>
+          </div>
+          <div class="rl-days">
+            <span class="d">Lun</span>
+            <span class="d on">Mar</span>
+            <span class="d">Mer</span>
+            <span class="d">Gio</span>
+            <span class="d">Ven</span>
+            <span class="d on">Sab</span>
+          </div>
+        </li>
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot unrec"></span>
+            <span class="rl-name">Non riciclabile</span>
+          </div>
+          <div class="rl-days">
+            <span class="d">Lun</span>
+            <span class="d">Mar</span>
+            <span class="d">Mer</span>
+            <span class="d on">Gio</span>
+            <span class="d">Ven</span>
+            <span class="d">Sab</span>
+          </div>
+        </li>
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot glass"></span>
+            <span class="rl-name">Vetro</span>
+          </div>
+          <div class="rl-days">
+            <span class="d">Lun</span>
+            <span class="d">Mar</span>
+            <span class="d">Mer</span>
+            <span class="d">Gio</span>
+            <span class="d on">Ven</span>
+            <span class="d">Sab</span>
+          </div>
+        </li>
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot diaper"></span>
+            <span class="rl-name">Pannolini</span>
+          </div>
+          <div class="rl-days">
+            <span class="d">Lun</span>
+            <span class="d on">Mar</span>
+            <span class="d">Mer</span>
+            <span class="d on">Gio</span>
+            <span class="d">Ven</span>
+            <span class="d on">Sab</span>
+          </div>
+        </li>
+        <li class="rl-item">
+          <div class="rl-head">
+            <span class="dot tex"></span>
+            <span class="rl-name">Rifiuti tessili</span>
+          </div>
+          <div class="rl-days">
+            <span class="d on">Lun</span>
+            <span class="d">Mar</span>
+            <span class="d">Mer</span>
+            <span class="d">Gio</span>
+            <span class="d">Ven</span>
+            <span class="d">Sab</span>
+          </div>
+        </li>
+      </ul>
 
       <div class="recycle-notes">
         <div class="recycle-note">
