@@ -1105,6 +1105,44 @@ section { position: relative; }
 .dot.diaper     { background: #1a2a5a; }
 .dot.tex        { background: #6b2a6b; }
 
+/* WiFi credentials box */
+.wifi-creds {
+  background: var(--cream);
+  border: 1px solid var(--line-soft);
+  border-left: 3px solid var(--lemon);
+  border-radius: 2px;
+  padding: 14px 18px;
+  margin-top: 4px;
+}
+
+.wifi-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 6px 0;
+}
+
+.wifi-row + .wifi-row {
+  border-top: 1px dashed var(--line-soft);
+}
+
+.wifi-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  font-weight: 500;
+}
+
+.wifi-value {
+  font-family: 'Fraunces', serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  user-select: all;
+}
+
 /* Mobile-friendly list (hidden on desktop) */
 .recycle-list { display: none; list-style: none; padding: 0; margin: 0; }
 
@@ -1565,6 +1603,44 @@ section { position: relative; }
   .welcome-text .drop { font-size: 92px; }
   .marquee-track { font-size: 18px; gap: 36px; }
   .marquee-track span { gap: 36px; }
+
+  /* Category filter chips — horizontal scroll on mobile */
+  .cat-bar {
+    width: auto;
+    margin-left: -24px;
+    margin-right: -24px;
+    padding: 0 24px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    gap: 8px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    margin-bottom: 40px;
+  }
+  .cat-bar::-webkit-scrollbar { display: none; }
+
+  .cat-btn {
+    flex-shrink: 0;
+    padding: 10px 18px;
+    background: var(--ivory);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    scroll-snap-align: start;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .cat-btn.active {
+    background: var(--ink);
+    color: var(--cream);
+    border-color: var(--ink);
+  }
 }
 
 /* JSON-LD has no display; this prevents any FOUC issue with hero anim */
@@ -1804,10 +1880,10 @@ section { position: relative; }
         <div class="rule-num">03<small>Cura</small></div>
         <div class="rule-main">
           <h3>Pulizia &amp; biancheria</h3>
-          <p>L'appartamento e la biancheria vengono consegnati in perfetto ordine e pulizia. La biancheria è in dotazione della lavanderia, quindi è vietato lavarla.</p>
+          <p>L'appartamento e la biancheria vengono consegnati in perfetto ordine e pulizia. La biancheria è in dotazione della casa e gli ospiti sono liberi di lavarla durante il soggiorno.</p>
         </div>
         <div class="rule-extra">
-          <p>Cambio biancheria su richiesta al costo di <strong>5 €</strong> a cambio. Per qualsiasi necessità contattare l'host.</p>
+          <p>In alternativa è possibile richiedere il cambio biancheria al costo di <strong>5 €</strong> a cambio. Per qualsiasi necessità contattare l'host.</p>
         </div>
       </div>
 
@@ -1855,10 +1931,19 @@ section { position: relative; }
         <div class="rule-num">07<small>Connessione</small></div>
         <div class="rule-main">
           <h3>Wi-Fi gratuito</h3>
-          <p>La casa è dotata di Wi-Fi in tutti gli ambienti. La connessione è veloce e adatta a smart working e streaming.</p>
+          <p>La casa è dotata di Wi-Fi in tutti gli ambienti. Connessione veloce, adatta a smart working e streaming.</p>
         </div>
         <div class="rule-extra">
-          <p>Le credenziali di accesso vengono comunicate <strong>al momento del check-in</strong>, insieme alle istruzioni d'uso degli elettrodomestici.</p>
+          <div class="wifi-creds">
+            <div class="wifi-row">
+              <span class="wifi-label">Rete</span>
+              <span class="wifi-value">Bellisario House's</span>
+            </div>
+            <div class="wifi-row">
+              <span class="wifi-label">Password</span>
+              <span class="wifi-value">Ale25411</span>
+            </div>
+          </div>
         </div>
       </div>
 
