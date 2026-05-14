@@ -1018,19 +1018,30 @@ section { position: relative; }
 .silence-clocks {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  font-family: 'Fraunces', serif;
-  font-size: 20px;
-  color: var(--lemon);
+  gap: 14px;
   text-align: right;
 }
 
-.silence-clocks em {
+.sc-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sc-label {
   font-family: 'Instrument Serif', serif;
   font-style: italic;
-  color: rgba(250, 246, 237, 0.5);
+  color: rgba(250, 246, 237, 0.55);
   font-size: 14px;
-  margin-right: 8px;
+  letter-spacing: 0.02em;
+}
+
+.sc-time {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  color: var(--lemon);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 /* ─────────────── RECYCLING ─────────────── */
@@ -1577,7 +1588,7 @@ section { position: relative; }
   .recycle-notes { grid-template-columns: repeat(2, 1fr); }
   .contact-grid { grid-template-columns: 1fr; gap: 40px; }
   .silence { grid-template-columns: 1fr; gap: 20px; }
-  .silence-clocks { text-align: left; flex-direction: row; gap: 24px; }
+  .silence-clocks { text-align: left; }
 }
 
 @media (max-width: 720px) {
@@ -2011,6 +2022,54 @@ body.menu-open { overflow: hidden; }
     gap: 12px;
   }
 
+  /* Feature stack - 2x2 grid on mobile, no arrows */
+  .feature-stack {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .feature {
+    padding: 22px 18px;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .feature:hover {
+    padding-left: 18px;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .feature-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .feature-body h4 {
+    font-size: 17px;
+    line-height: 1.15;
+    margin-bottom: 2px;
+  }
+
+  .feature-body p {
+    font-size: 12px;
+    line-height: 1.45;
+  }
+
+  .feature-arrow {
+    display: none;
+  }
+
   /* Hero compactness on small screens */
   .hero { padding: 100px 24px 50px; }
 
@@ -2367,8 +2426,14 @@ body.menu-open { overflow: hidden; }
           <div class="body">In conformità al regolamento della casa e alle norme della Polizia Municipale, si richiede di osservare il silenzio nelle fasce orarie indicate.</div>
         </div>
         <div class="silence-clocks">
-          <div><em>pomeriggio</em> 14:00 — 16:00</div>
-          <div><em>notte</em> 22:00 — 08:00</div>
+          <div class="sc-item">
+            <span class="sc-label">pomeriggio</span>
+            <span class="sc-time">14:00 — 16:00</span>
+          </div>
+          <div class="sc-item">
+            <span class="sc-label">notte</span>
+            <span class="sc-time">22:00 — 08:00</span>
+          </div>
         </div>
       </div>
 
@@ -3191,3 +3256,4 @@ body.menu-open { overflow: hidden; }
 
 </body>
 </html>
+               
