@@ -1838,7 +1838,7 @@ body.menu-open { overflow: hidden; }
   /* Accordion rules */
   .rule {
     padding: 0 !important;
-    border-bottom: 1px solid var(--line-soft);
+    border-bottom: 1px solid rgba(250, 246, 237, 0.15);
     border-radius: 0;
     gap: 0 !important;
   }
@@ -1856,13 +1856,13 @@ body.menu-open { overflow: hidden; }
     border: none;
     text-align: left;
     font-family: inherit;
-    color: var(--ink);
+    color: var(--cream);
   }
 
   .rule-toggle .rt-num {
     font-family: 'Geist', sans-serif;
     font-size: 12px;
-    color: var(--graphite);
+    color: var(--lemon);
     letter-spacing: 0.15em;
     font-weight: 500;
     min-width: 28px;
@@ -1874,13 +1874,13 @@ body.menu-open { overflow: hidden; }
     font-weight: 500;
     letter-spacing: -0.01em;
     line-height: 1.2;
-    color: var(--ink);
+    color: var(--cream);
   }
 
   .rule-toggle .rt-icon {
     width: 28px;
     height: 28px;
-    border: 1px solid var(--line);
+    border: 1px solid rgba(250, 246, 237, 0.35);
     border-radius: 50%;
     display: grid;
     place-items: center;
@@ -1894,7 +1894,7 @@ body.menu-open { overflow: hidden; }
   .rule-toggle .rt-icon::after {
     content: '';
     position: absolute;
-    background: var(--ink);
+    background: var(--cream);
     transition: all 0.35s cubic-bezier(0.6, 0, 0.4, 1);
   }
 
@@ -1909,13 +1909,13 @@ body.menu-open { overflow: hidden; }
   }
 
   .rule.is-open .rt-icon {
-    background: var(--ink);
-    border-color: var(--ink);
+    background: var(--lemon);
+    border-color: var(--lemon);
   }
 
   .rule.is-open .rt-icon::before,
   .rule.is-open .rt-icon::after {
-    background: var(--cream);
+    background: var(--ink);
   }
 
   .rule.is-open .rt-icon::after {
@@ -1930,12 +1930,33 @@ body.menu-open { overflow: hidden; }
   .rule-main,
   .rule-extra {
     display: none;
-    padding: 0 0 24px 44px;
+    padding: 0 0 28px 44px;
     grid-column: 1 / -1 !important;
+    color: rgba(250, 246, 237, 0.85);
   }
 
   .rule-main h3 {
     display: none;
+  }
+
+  .rule-main p,
+  .rule-extra p {
+    color: rgba(250, 246, 237, 0.78);
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .rule-extra p + p,
+  .rule-extra ul {
+    margin-top: 10px;
+  }
+
+  .rule-extra ul li {
+    color: rgba(250, 246, 237, 0.78);
+  }
+
+  .rule-extra strong {
+    color: var(--lemon);
   }
 
   .rule.is-open .rule-main,
@@ -1943,11 +1964,41 @@ body.menu-open { overflow: hidden; }
     display: block;
   }
 
+  .rule.is-open .rule-extra {
+    padding-top: 0;
+  }
+
+  /* Time chip stays vibrant on dark */
+  .rule-time {
+    color: var(--lemon);
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  /* Wi-Fi credentials box on dark background */
+  .wifi-creds {
+    background: rgba(250, 246, 237, 0.05);
+    border: 1px solid rgba(250, 246, 237, 0.15);
+    border-left: 3px solid var(--lemon);
+  }
+
+  .wifi-label {
+    color: rgba(250, 246, 237, 0.55);
+  }
+
+  .wifi-value {
+    color: var(--cream);
+  }
+
+  .wifi-row + .wifi-row {
+    border-top: 1px dashed rgba(250, 246, 237, 0.15);
+  }
+
   /* Show more on places */
   .places-grid .place:nth-child(n+4):not(.always-show) {
     display: none;
   }
-  .places-grid.is-expanded .place {
+  .places-grid.is-expanded .place:nth-child(n+4):not(.always-show) {
     display: flex;
   }
   .places-grid .place.is-filtered {
@@ -3104,6 +3155,23 @@ body.menu-open { overflow: hidden; }
       const expanded = placesGrid.classList.toggle('is-expanded');
       showMoreBtn.classList.toggle('is-expanded');
       showMoreBtn.querySelector('.label').textContent = expanded ? 'Mostra meno' : 'Mostra tutti i luoghi';
+
+      if (expanded) {
+        // Force reveal on the newly visible places (they may never have entered viewport)
+        const hidden = placesGrid.querySelectorAll('.place:nth-child(n+4)');
+        hidden.forEach((p, i) => {
+          p.classList.add('in');
+          p.style.opacity = '0';
+          p.style.transform = 'translateY(20px)';
+          requestAnimationFrame(() => {
+            setTimeout(() => {
+              p.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+              p.style.opacity = '1';
+              p.style.transform = 'translateY(0)';
+            }, i * 50);
+          });
+        });
+      }
     });
   }
 
